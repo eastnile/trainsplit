@@ -4,16 +4,14 @@
 \alias{trainsplit}
 \title{Splits a dataframe into training and test sets.}
 \usage{
-trainsplit(data, trainpct = 0.75, return = "list", round = "floor", seed = 111)
+trainsplit(data, trainpct = 0.75, return = "list", seed = 111)
 }
 \arguments{
 \item{data}{The data you want to split}
 
-\item{trainpct}{Fraction of observations to go into training set. Must be >= 0 and =< 1.}
+\item{trainpct}{Fraction of observations to go into training set. Must be > 0 and < 1. NOTE: This function "rounds up", so that at least 1 observation will go into the training and test sets.}
 
 \item{return}{If "list", returns list containing the training and test set. If "train" or "test", returns only the training or test sets.}
-
-\item{round}{What to do when nrow(data) * trainpct is not a whole number. Default is to round down the size of the training set. Set to 'ceiling' to round up.}
 
 \item{seed}{Sets the random seed. Note: sets seed only locally within the function.}
 }
@@ -22,9 +20,4 @@ A dataframe containing either the test set, the training set, or a list containi
 }
 \description{
 Splits a dataframe into training and test sets.
-}
-\examples{
-trainsplit(mtcars, trainpct = 0.75, return = 'train') # Returns the training set
-trainsplit(mtcars, trainpct = 0.01, return = 'train', round = 'floor') # size of training set rounds down to zero
-trainsplit(mtcars, trainpct = 0.01, return = 'train', round = 'ceiling') # size of training set rounds up to one.
 }
