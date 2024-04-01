@@ -1,11 +1,15 @@
 Package: trainsplit
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Split a Dataframe, Tibble, or Data.table into Training and Test Sets
+Version: 1.0
+Authors@R: 
+    person("Zhaochen", "He", , "eastnileuc@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6579-5073"))
+Description: Split a dataframe, tibble, or data.table into a list containing training and test sets. Can specify either number or percentage of observations to go into the training set.
+URL: https://github.com/eastnile/trainsplit
 Encoding: UTF-8
-LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports: data.table
+Suggests: tibble, 
+          dplyr
+License: MIT + file LICENSE
