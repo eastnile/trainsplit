@@ -9,7 +9,8 @@ trainsplit(
   ntrain = NULL,
   trainpct = NULL,
   round_ntrain = "round",
-  seed = NULL
+  seed = NULL,
+  return = "parentenv"
 )
 }
 \arguments{
@@ -22,15 +23,17 @@ trainsplit(
 \item{round_ntrain}{What to do when nrow(data) * trainpct is not a whole number. Default behavior is to round the size of the training set. Use 'ceiling' or 'floor' to instead set the size of training set to next highest or lowest whole number.}
 
 \item{seed}{Sets the random seed; use this argument if you want to always get the same result. Note: sets seed only locally within the function.}
+
+\item{return}{Three return modes available: "parentenv" assigns the training and test sets into the environment that called the function with names based on the name of the original dataset; this is intended largely for an educational context. "list" will return a list with the training and test sets. "index" will return only the numerical index of the rows to be placed into the training set, which can then be manually subset by the user.}
 }
 \value{
-A list, containing the training and test sets.
+Depends on "return" argument; either a list, an index, or NULL if return = "parentenv" was selected.
 }
 \description{
-Splits a dataframe, tibble, or data.table into a test set and training set. Specify either the number or percentage of observations to put into training set.
+Splits a dataframe, tibble, or data.table into a test set and training set. Specify either the number or percentage of observations to be put into training set.
 }
 \examples{
-# Returns a list containing the training and test sets:
+# Splits the training and test sets and assigns them into memory.
 trainsplit(mtcars, trainpct = 0.75)
 # Specify size of training set by number of rows, not percent:
 trainsplit(mtcars, ntrain = 10)
@@ -38,4 +41,6 @@ trainsplit(mtcars, ntrain = 10)
 trainsplit(mtcars, trainpct = 0.01, round_ntrain = 'ceiling')
 # Also works with data.table:
 trainsplit(data.table::as.data.table(mtcars), trainpct = 0.75)
+# Return a list containing the training/test sets instead:
+trainsplit(mtcars, trainpct = 0.75, return = 'list')
 }

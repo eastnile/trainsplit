@@ -1,10 +1,10 @@
 Package: trainsplit
 Title: Split a Dataframe, Tibble, or Data.table into Training and Test Sets
-Version: 1.0
+Version: 1.1
 Authors@R: 
     person("Zhaochen", "He", , "eastnileuc@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6579-5073"))
-Description: Split a dataframe, tibble, or data.table into a list containing training and test sets. Can specify either number or percentage of observations to go into the training set.
+Description: Split a dataframe, tibble, or data.table into training and test sets. Return either a list, an index, or directly assign training and test sets into memory.
 URL: https://github.com/eastnile/trainsplit
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
